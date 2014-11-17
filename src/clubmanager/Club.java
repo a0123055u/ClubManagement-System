@@ -1,31 +1,46 @@
 package clubmanager;
+import java.util.*;
+
 
 public class Club
 
 {
+	 
 	private int currentNumber=0;
 
-	private Member members[] =new Member[50];
+	//private Member members[] =new Member[50];
+	ArrayList<Member>members = new ArrayList<Member>();
 		public void addMember(String surname, String firstName,String secondName)
 		{
 		
-			members[currentNumber]=new Member(currentNumber,surname,firstName,secondName);
+			Member  mem=new Member(currentNumber,surname,firstName,secondName);
+			members.add(mem);
 			currentNumber++;
 		
 		}
 		public void showMember()
 		{
 		
-			for(int i=0;i< members.length;i++)
-				if(members[i]!=null)
+			
+				for(Member m : members)
+				{
+				if(m!=null)
+					
 			{
-				System.out.println(members[i].show());
+				System.out.println(m);
 			}
 				else System.out.println("no member in this space");
-		} 
+		} }
 		public void removeMember(int currentNumber)
 		{
-			this.currentNumber=currentNumber;
-			members[currentNumber]=null;
+			for( Member m : members)
+			{
+				if(m.getMemberNumber()== currentNumber)
+				{
+					members.remove(m);
+					break;
+				}
+			}
+			System.out.println("no member found");
 		}
 }

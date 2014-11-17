@@ -15,6 +15,8 @@ public static void main(String args[])
 	z.showMember();
 	z.removeMember(1);
 	z.showMember();
+	z.removeMember(2);
+	z.showMember();
 
 	
 	}
