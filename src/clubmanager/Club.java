@@ -77,9 +77,9 @@ public class Club
 				{
 				if(m!=null)
 					
-			{
-				System.out.println(m);
-			}
+					{
+					System.out.println(m);
+					}
 				else System.out.println("no member in this space");
 		} }
 		public void removeMember(int currentNumber)
