@@ -52,27 +52,28 @@ public static void main(String args[])
 //	System.out.println(bk.toString());
 	BookingRegister br = new BookingRegister();
 	br.addBooking(m2, f1, start, end);
-	FileReader fr1=new FileReader("D:\\FacilityFile.txt");
+	FileReader fr1=new FileReader("F:\\FacilityFile.txt");
+	FileReader fr2= new FileReader("F:\\MemberFile.txt");
 	BufferedReader br1 = new BufferedReader(fr1);
-	BufferedReader br2 = new BufferedReader(new FileReader("D:\\MemberFile.txt"));
-	 LineNumberReader lr = new  LineNumberReader(fr1);
-	 LineNumberReader lr1=new  LineNumberReader (br2);
+	BufferedReader br2 = new BufferedReader(fr2);
+	 LineNumberReader lr1 = new  LineNumberReader(fr1);
+	 LineNumberReader lr2=new  LineNumberReader (fr2);
 	String s1,s2;
 	
 	temp=new String[10];
-	while((s1=br1.readLine())!=null&&lr.getLineNumber()<=10)
+	while((s1=br1.readLine())!=null && lr1.getLineNumber()<=3)
 	{
-	 temp[lr.getLineNumber()]=s1;
-	System.out.println(s1 + " "+ lr.getLineNumber());
+	 temp[lr1.getLineNumber()]=s1;
+	System.out.println(s1 + " "+ lr1.getLineNumber());
 	
 	}
 	
 	
-//	while((s2=br2.readLine())!=null&&lr.getLineNumber()>10)
-//	{
-//		temp2[i]=s2;
-//		System.out.println(s2);
-//	}
+	while((s2=br2.readLine())!=null && lr2.getLineNumber()<10)
+	{
+//		temp2[lr2.getLineNumber()]=s2;
+		System.out.println(s2);
+	}
 	
 	}catch (IOException ex)
 	{ 
