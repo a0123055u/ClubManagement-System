@@ -4,13 +4,19 @@ package clubmanager;
 //import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
 
-public class ClubApplication {
-
+public class ClubApplication 
+{
+		
 
 public static void main(String args[])
-	{
 
+	{
+	String temp[] = null,temp2[]=null;
 	//Club z=  new Club();
 	//z.getNumber(j);
 //	z.addMember("Murugesan","Thiru","valluvan");
@@ -37,13 +43,40 @@ public static void main(String args[])
 //	Calendar c = Calendar.getInstance();
 //	c.setTime(new Date());
 //	c.add(Calendar.DATE, 1);
+	try{
 	Member m1= new Member(3,"Murugan","Raga", "Vendren");
 	Facility f1 = new Facility("Basketball","Two basketball court are available");
 	Member m2 = new Member(4,"karthick","Sunder","Shiva");
 	
 	Booking bk = new Booking(start,start,m1,f1);
-	System.out.println(bk.toString());
+//	System.out.println(bk.toString());
 	BookingRegister br = new BookingRegister();
 	br.addBooking(m2, f1, start, end);
+	FileReader fr1=new FileReader("D:\\FacilityFile.txt");
+	BufferedReader br1 = new BufferedReader(fr1);
+	BufferedReader br2 = new BufferedReader(new FileReader("D:\\MemberFile.txt"));
+	 LineNumberReader lr = new  LineNumberReader(fr1);
+	 LineNumberReader lr1=new  LineNumberReader (br2);
+	String s1,s2;
+	
+	temp=new String[10];
+	while((s1=br1.readLine())!=null&&lr.getLineNumber()<=10)
+	{
+	 temp[lr.getLineNumber()]=s1;
+	System.out.println(s1 + " "+ lr.getLineNumber());
+	
+	}
+	
+	
+//	while((s2=br2.readLine())!=null&&lr.getLineNumber()>10)
+//	{
+//		temp2[i]=s2;
+//		System.out.println(s2);
+//	}
+	
+	}catch (IOException ex)
+	{ 
+		System.out.println(ex.getMessage());
+	}
 	}
 }
